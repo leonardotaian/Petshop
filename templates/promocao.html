@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pet Shop</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Página web de pet shop">
+        <link rel="shortcut icon" type="image/jpg" href="../static/image/logo.png"/>
+        <link rel="stylesheet" href="../static/style/promocao.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="div-container">
+                    <img class="img-logo" src="../static/image/logo.png" alt="Logo tipo do petshop">
+                </div>
+                <div class="div-container">
+                    
+                </div>
+                <div class="div-container login">
+                    {% if current_user.is_authenticated %}
+                    <div class="user">
+                        <a href="/perfil"> Olá, {{current_user.nome_humano}}</a>
+                        <a id="logout" href="/logout">Sair</a>
+                    </div>
+                    {% else %}
+                    <a href="/login"> Entrar | Cadastrar</a>                    
+                    {% endif %}
+                </div>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a class="inicio" href="/"><img class="img-menu" src="{{ url_for('static', filename='image/inicio.png')}}" alt="imagem menu">Inicio</a></li>
+                    <li><a class="cachorro" href="#"><img class="img-menu" src="{{ url_for('static', filename='image/cachorro.png')}}" alt="imagem cachorro">Cachorro</a>
+                        <ul class="submenu submenu-cachorro">
+                            <li><a href="/produtos/racao/1">Ração</a></li>
+                            <li><a href="/produtos/acessorio/1">Acessórios</a></li>
+                            <li><a href="/produtos/medicamento/1">Medicação</a></li>
+                            <li><a href="/produtos/higienie/1">Higiene</a></li>
+                            <li><a href="/produtos/brinquedo/1">Brinquedos</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="gato" href="#"><img class="img-menu" src="{{ url_for('static', filename='image/gato.png')}}" alt="imagem gato">Gato</a>
+                        <ul class="submenu submenu-gato">
+                            <li><a href="/produtos/racao/2">Ração</a></li>
+                            <li><a href="/produtos/acessorio/2">Acessórios</a></li>
+                            <li><a href="/produtos/medicamento/2">Medicação</a></li>
+                            <li><a href="/produtos/higienie/2">Higiene</a></li>
+                            <li><a href="/produtos/brinquedo/2">Brinquedos</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="passaro" href="#"><img class="img-menu" src="{{ url_for('static', filename='image/passaro.png')}}" alt="imagem pássaro">Outros Pets</a>
+                        <ul class="submenu submenu-outros">
+                            <li><a href="#">Peixe</a>
+                                <ul class="submenu2">
+                                    <li><a href="/produtos/racao/6">Ração</a></li>
+                                    <li><a href="/produtos/acessorio/6">Acessórios</a></li>
+                                    <li><a href="/produtos/medicamento/6">Medicação</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Hamster</a>
+                                <ul class="submenu2">
+                                    <li><a href="/produtos/racao/3">Ração</a></li>
+                                    <li><a href="/produtos/acessorio/3">Acessórios</a></li>
+                                    <li><a href="/produtos/brinquedo/3">Brinquedos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Pássaro</a>
+                                <ul class="submenu2">
+                                    <li><a href="/produtos/racao/4">Ração</a></li>
+                                    <li><a href="/produtos/acessorio/4">Acessórios</a></li>
+                                    <li><a href="/produtos/medicamento/4">Medicação</a></li>
+                                    <li><a href="/produtos/higienie/4">Higiene</a></li>
+                                    <li><a href="/produtos/brinquedo/4">Brinquedos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Porquinho da India</a>
+                                <ul class="submenu2">
+                                    <li><a href="/produtos/racao/5">Ração</a></li>
+                                    <li><a href="/produtos/acessorio/5">Acessórios</a></li>
+                                    <li><a href="/produtos/brinquedo/5">Brinquedos</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="servico" href="/servicos"><img class="img-menu" src="{{ url_for('static', filename='image/servico.png')}}" alt="imagem coração">Serviços</a></li>
+                    <li><a class="promocao" href="/promocao"><img class="img-menu" src="{{ url_for('static', filename='image/promocao.png')}}" alt="imagem desconto">Promoções</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="conteudo">
+            <div class="sem-promocao">
+                <p class="texto-sem-promocao">Não temos promoções no momento...</p>
+                <img class="img-sem-promocao" src="../static/image/triste.png" alt="imagem macaco triste">
+            </div>
+        </section>
+        <footer class="rodape">
+            <div class="copy">Copyright 2024 <i class="fa-solid fa-copyright" style="color: black;"></i></div>
+        </footer>
+    </body>
+</html>
