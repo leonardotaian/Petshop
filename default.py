@@ -3,6 +3,7 @@ from app import app
 from flask_login import login_user, logout_user, current_user
 from user import User
 import rep
+import os
 
 
 @app.route("/")
@@ -184,4 +185,5 @@ def compra(idProduto):
     produtos = rep.produtos(animal, classe)
     return render_template ('compra.html', produto=produto, produtos=produtos)
 
-app.run(debug=True)
+PORT = os.environ["PORT"]
+app.run(debug=True,port=PORT,host="0.0.0.0")
